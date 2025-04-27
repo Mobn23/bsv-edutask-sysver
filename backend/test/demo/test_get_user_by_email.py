@@ -6,7 +6,7 @@ from src.controllers import usercontroller
 class TestGetUserByEmail:
     """This test demonstrates the cases of the get_user_by_email()"""
 
-    @pytest.mark.testGetUserByEmail
+    @pytest.mark.unit
     def test_one_user(self):
         """
         Tests get_user_by_email() returning one email as output when there's no duplications .
@@ -22,7 +22,7 @@ class TestGetUserByEmail:
         # print("result", result)
         assert result["email"] == "mobn23@student.bth.se"
 
-    @pytest.mark.testGetUserByEmail
+    @pytest.mark.unit
     def test_many_users(self, capfd):
         """
             Tests get_user_by_email() returning Error, & the 1st email when duplicated emails found for the same user.
@@ -42,7 +42,7 @@ class TestGetUserByEmail:
         assert 'Error: more than one user found with mail mobn23@student.bth.se' in out
         assert result["email"] == "mobn23@student.bth.se"
 
-    @pytest.mark.testGetUserByEmail
+    @pytest.mark.unit
     def test_passed_invalid_email_format(self):
         """
         Tests get_user_by_email() the passed email parameter's format invalid (Simple validation checking if contains @ as implemented in the dao ).
@@ -60,7 +60,7 @@ class TestGetUserByEmail:
         # print("exc_info", exc_info)
         assert 'Error: invalid email address' in str(exc_info)
 
-    @pytest.mark.testGetUserByEmail
+    @pytest.mark.unit
     def test_exception_find_returns_nothing(self):
         """
         Tests the exception case when find() returns nothing (users undefined).
