@@ -13,7 +13,7 @@ def DAO_task():
     dao_task.collection.delete_many({
         "title": {"$regex": "Test title$"}
     })
-
+    
 @pytest.fixture
 def DAO_user():
     dao_user = DAO("user")
