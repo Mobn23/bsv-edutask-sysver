@@ -3,6 +3,8 @@ name: Run Python Unit Tests
 on:
   pull_request:
     branches: [ ci-pipeline ]
+  push:
+    branches: [ ci-pipeline ]
 
 jobs:
   test:
