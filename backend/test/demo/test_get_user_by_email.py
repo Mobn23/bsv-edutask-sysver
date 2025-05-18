@@ -70,8 +70,5 @@ class TestGetUserByEmail:
         mock_dao.find.return_value = []
 
         userController = usercontroller.UserController( dao = mock_dao )
-        with pytest.raises(Exception) as exc_info:
-            userController.get_user_by_email("mobn23@student.bth.se")
-
-        print("exc_info: test_exception_find_returns_nothing", exc_info)
-        assert isinstance(exc_info.value, Exception)
+        result = userController.get_user_by_email("non-exist-email@gmail.com")
+        assert result is None
